@@ -51,28 +51,21 @@ body {
   padding: 0;
 }
 
-/* App Container */
+/* ========================================
+   LAYOUT COMPONENTS
+   ======================================== */
+
 .app-container {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
   padding: 2rem 1rem;
 }
 
-/* Game Wrapper */
 .game-wrapper {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /* background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: hidden;
-  position: relative; */
+  position: relative;
 }
 
 .game-wrapper::before {
@@ -94,9 +87,12 @@ body {
   z-index: 2;
 }
 
-/* Game Mode Selector */
+/* ========================================
+   GAME MODE SELECTOR
+   ======================================== */
+
 .game-header {
-  /* margin-bottom: 2rem; */
+  margin-bottom: 2rem;
 }
 
 .game-title {
@@ -186,7 +182,11 @@ body {
   margin: 0.5rem 0;
 }
 
-.game-info {
+/* ========================================
+   GAME INFO BAR
+   ======================================== */
+
+.game-info-bar {
   background: var(--surface);
   border-radius: var(--radius-lg);
   padding: 1rem;
@@ -230,7 +230,10 @@ body {
   padding: 0 3rem;
 }
 
-/* Modal Styles */
+/* ========================================
+   MODAL COMPONENTS
+   ======================================== */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -306,41 +309,10 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+/* ========================================
+   SINGLE PLAYER GAME STYLES
+   ======================================== */
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.info-label {
-  color: var(--text-light);
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.info-value {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.info-separator {
-  color: var(--text-light);
-  font-size: 1.25rem;
-  line-height: 1;
-  margin: 0 0.25rem;
-}
-
-/* Game Container */
 .game-container {
   min-height: calc(100vh - var(--nav-height-desk) - 200px);
   padding: 2rem;
@@ -361,7 +333,6 @@ body {
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
-/* Game Controls */
 .game-controls {
   display: flex;
   flex-direction: column;
@@ -430,11 +401,10 @@ body {
   border-radius: var(--radius-md);
   background: var(--surface);
   transition: all var(--transition-normal);
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
   text-align: center;
 }
 
-/* Hide spinner buttons for Chrome, Safari, Edge, Opera */
 .size-input::-webkit-outer-spin-button,
 .size-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -454,7 +424,10 @@ body {
   text-align: center;
 }
 
-/* Game Status */
+/* ========================================
+   GAME STATUS
+   ======================================== */
+
 .game-status {
   display: flex;
   justify-content: space-between;
@@ -477,7 +450,7 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.5rem;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface) 100%);;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface) 100%);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -489,6 +462,10 @@ body {
   color: var(--text-light);
   font-weight: 500;
 }
+
+/* ========================================
+   GAME BOARD
+   ======================================== */
 
 .dynamic-board {
   display: grid;
@@ -564,7 +541,10 @@ body {
   opacity: 1;
 }
 
-/* Player Symbols */
+/* ========================================
+   PLAYER SYMBOLS
+   ======================================== */
+
 .player-symbol {
   width: 100%;
   height: 100%;
@@ -582,25 +562,10 @@ body {
   animation: rotateIn 0.3s ease-out;
 }
 
-@keyframes scaleIn {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
+/* ========================================
+   GAME RESULT MODAL
+   ======================================== */
 
-@keyframes rotateIn {
-  from {
-    transform: scale(0) rotate(-180deg);
-  }
-  to {
-    transform: scale(1) rotate(0);
-  }
-}
-
-/* Game Result */
 .result-overlay {
   position: fixed;
   inset: 0;
@@ -712,76 +677,13 @@ body {
   animation: confetti 1.5s ease-out infinite;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+/* ========================================
+   BUTTONS
+   ======================================== */
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0.89);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes spinIn {
-  from {
-    opacity: 0;
-    transform: scale(0) rotate(-180deg);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes confetti {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Buttons */
-  .start-game-button {
+.start-game-button {
   padding: 0.875rem 2rem;
-    font-size: 1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: white;
   background: var(--primary);
@@ -827,10 +729,6 @@ body {
   box-shadow: none;
 }
 
-.reset-button:hover {
-  background-color: rgb(100, 0, 0);
-}
-
 .reset-game-button {
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
@@ -852,54 +750,11 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-.status-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+/* ========================================
+   MULTIPLAYER SPECIFIC STYLES
+   ======================================== */
 
-.current-player {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.status-label {
-  font-weight: 500;
-  color: var(--text-light);
-}
-
-.player-indicator {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.5rem;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface) 100%);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.win-condition {
-  font-size: 0.875rem;
-  color: var(--text-light);
-  font-weight: 500;
-}
-
-@media screen and (max-width: 480px) {
-  .game-status {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .reset-game-button {
-    align-self: flex-start;
-  }
-}
-
-/* Username Setup Styles */
+/* Username Setup */
 .username-setup {
   min-height: calc(100vh - var(--nav-height-desk) - 200px);
   display: flex;
@@ -1009,23 +864,7 @@ body {
   animation: fadeIn 0.5s ease-out 0.3s both;
 }
 
-@media screen and (max-width: 768px) {
-  .username-setup {
-    min-height: calc(100vh - var(--nav-height-mob) - 160px);
-    padding: 1rem;
-  }
-
-  .username-setup h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .username-form {
-    padding: 2rem;
-  }
-}
-
-/* Room Setup Styles */
+/* Room Setup */
 .room-setup {
   min-height: calc(100vh - var(--nav-height-desk) - 200px);
   display: flex;
@@ -1044,6 +883,10 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
+}
+
+.room-setup-container {
+  width: 100%;
 }
 
 .room-options {
@@ -1200,38 +1043,7 @@ body {
   transform: translateX(200%);
 }
 
-@media screen and (max-width: 768px) {
-  .room-setup {
-    min-height: calc(100vh - var(--nav-height-mob) - 160px);
-    padding: 1rem;
-  }
-
-  .room-setup h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .room-setup-container {
-    padding: 1.5rem;
-  }
-
-  .room-options {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .room-divider {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
-
-  .room-option-card {
-    width: 100%;
-    padding: 1.5rem;
-  }
-}
-
-/* Room Info Styles */
+/* Room Info Container */
 .room-info-container {
   width: 100%;
   max-width: 600px;
@@ -1326,12 +1138,6 @@ body {
   gap: 0.5rem;
 }
 
-.status-label {
-  font-size: 0.875rem;
-  color: var(--text-light);
-  font-weight: 500;
-}
-
 .status-value {
   font-size: 1.25rem;
   font-weight: 600;
@@ -1420,6 +1226,244 @@ body {
   margin: 0 auto;
 }
 
+/* Multiplayer Game Layout */
+.multiplayer-game {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.multiplayer-game-info {
+  flex-shrink: 0;
+  padding: 0.5rem 0;
+}
+
+.multiplayer-game-board-and-chat {
+  display: flex;
+  flex: 1;
+  gap: 0.75rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.multiplayer-game-board-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.multiplayer-dynamic-board {
+  display: grid;
+  gap: 2px;
+  background-color: #374151;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.multiplayer-dynamic-board .cell {
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: clamp(0.8rem, 3vw, 2.5rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.multiplayer-dynamic-board .cell:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.multiplayer-dynamic-board .cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.multiplayer-dynamic-board .cell.own-move {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Multiplayer Chat Section */
+.multiplayer-chat-section {
+  width: 350px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  max-height: calc(100vh - 150px);
+  overflow: hidden;
+}
+
+.multiplayer-chat-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.multiplayer-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0.75rem;
+  min-height: 0;
+  padding-right: 0.5rem;
+}
+
+.multiplayer-chat-message {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.multiplayer-chat-message strong {
+  color: #1e40af;
+}
+
+.multiplayer-chat-input {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.multiplayer-message-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.multiplayer-message-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.multiplayer-send-button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.multiplayer-send-button:hover {
+  background-color: #2563eb;
+}
+
+.multiplayer-game-messages {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.multiplayer-winner-message, 
+.multiplayer-draw-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.multiplayer-winner-message {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 2px solid #22c55e;
+}
+
+.multiplayer-draw-message {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 2px solid #f59e0b;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spinIn {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -1429,28 +1473,28 @@ body {
   to { transform: rotate(360deg); }
 }
 
-@media screen and (max-width: 768px) {
-  .room-info-container {
-    padding: 1.5rem;
-    margin: 1rem;
+@keyframes confetti {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  .room-header h2 {
-    font-size: 1.75rem;
+@keyframes rotateIn {
+  from {
+    transform: scale(0) rotate(-180deg);
   }
+  to {
+    transform: scale(1) rotate(0);
+  }
+}
 
-  .room-code-value {
-    font-size: 1.25rem;
-  }
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-  .room-status {
-    gap: 1.5rem;
-  }
-
-  .waiting-message {
-    font-size: 1.1rem;
-  }
-}/* Responsive Design */
 @media screen and (max-width: 768px) {
   .app-container {
     padding: 1rem;
@@ -1467,7 +1511,7 @@ body {
   }
 
   .game-header {
-    /* margin-bottom: 1.5rem; */
+    margin-bottom: 1.5rem;
   }
 
   .game-title {
@@ -1522,9 +1566,101 @@ body {
     width: 3rem;
     height: 3rem;
   }
+
+  /* Multiplayer responsive */
+  .username-setup {
+    min-height: calc(100vh - var(--nav-height-mob) - 160px);
+    padding: 1rem;
+  }
+
+  .username-setup h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .username-form {
+    padding: 2rem;
+  }
+
+  .room-setup {
+    min-height: calc(100vh - var(--nav-height-mob) - 160px);
+    padding: 1rem;
+  }
+
+  .room-setup h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .room-setup-container {
+    padding: 1.5rem;
+  }
+
+  .room-options {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .room-divider {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .room-option-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .room-info-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .room-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .room-code-value {
+    font-size: 1.25rem;
+  }
+
+  .room-status {
+    gap: 1.5rem;
+  }
+
+  .waiting-message {
+    font-size: 1.1rem;
+  }
+
+  .multiplayer-game-board-and-chat {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .multiplayer-chat-section {
+    width: 100%;
+    max-height: calc(35vh - 40px);
+    padding: 0.5rem;
+  }
+  
+  .multiplayer-chat-messages {
+    max-height: calc(25vh - 80px);
+  }
+  
+  .multiplayer-dynamic-board {
+    max-width: min(85vw, calc(100vh)) !important;
+    max-height: min(85vw, calc(100vh)) !important;
+    width: min(85vw, calc(100vh)) !important;
+    height: min(85vw, calc(100vh)) !important;
+  }
+  
+  .multiplayer-dynamic-board .cell {
+    font-size: clamp(1rem, 6vw, 2rem);
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
-/* Extra small screens */
 @media screen and (max-width: 480px) {
   .app-container {
     padding: 0.5rem;
@@ -1543,872 +1679,133 @@ body {
   .game-wrapper::before {
     height: 3px;
   }
-}
 
-/* ========================================
-   MULTIPLAYER TIC-TAC-TOE STYLES
-   ======================================== */
+  .game-status {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
-/* Username Setup */
-.username-setup {
-  padding: 3rem 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-  border-radius: 20px;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  max-width: 500px;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
+  .reset-game-button {
+    align-self: flex-start;
+  }
 
-.username-setup::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    var(--primary) 0%, 
-    var(--secondary) 50%, 
-    var(--accent) 100%);
-}
-
-.username-setup h2 {
-  margin: 0 0 2rem 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.username-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.username-input-group {
-  width: 100%;
-  position: relative;
-}
-
-.username-input {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1.125rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.username-input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-  transform: translateY(-2px);
-}
-
-.username-input::placeholder {
-  color: #9ca3af;
-}
-
-.username-button {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-  min-width: 200px;
-}
-
-.username-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-}
-
-.username-button:active {
-  transform: translateY(0);
-}
-
-.username-hint {
-  margin: 0;
-  color: #6b7280;
-  font-size: 0.875rem;
-  font-style: italic;
-}
-
-/* Room Setup */
-.room-setup {
-  padding: 2rem;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-  border-radius: 20px;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 8px 16px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.room-setup h2 {
-  text-align: center;
-  margin: 0 0 2rem 0;
-  font-size: 2.25rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.room-setup-container {
-  width: 100%;
-}
-
-.room-options {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-
-.room-option-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  max-width: 400px;
-  transition: all 0.3s ease;
-}
-
-.room-option-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 24px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-.room-option-card h3 {
-  margin: 0 0 1.5rem 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary);
-  text-align: center;
-}
-
-.size-selection {
-  margin-bottom: 1.5rem;
-}
-
-.size-selection label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #374151;
-}
-
-.board-size-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.board-size-select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.create-room-button,
-.join-room-button {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.create-room-button:hover,
-.join-room-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-}
-
-.room-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.room-divider::before,
-.room-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #adadad, transparent);
-}
-
-.room-divider span {
-  padding: 0 1rem;
-  color: #6b7280;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.join-room-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.input-group {
-  width: 100%;
-}
-
-.room-id-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.room-id-input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.room-id-input::placeholder {
-  color: #9ca3af;
-}
-
-/* Room Info Container */
-.room-info-container {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.room-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.room-header h2 {
-  margin: 0 0 1rem 0;
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.room-code {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.room-code-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.room-code-value {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  font-family: 'Courier New', monospace;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.copy-code-button {
-  background: none;
-  border: none;
-  color: #6b7280;
-  cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.copy-code-button:hover {
-  background: #f3f4f6;
-  color: var(--primary);
-}
-
-.room-status {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2rem;
-  gap: 1rem;
-}
-
-.status-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.status-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.status-value {
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.player-count {
-  padding: 0.5rem 1rem;
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border-radius: 20px;
-  border: 2px solid rgba(239, 68, 68, 0.2);
-}
-
-.player-count.complete {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-.player-symbol-display {
-  padding: 0.5rem 1rem;
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--primary);
-  border-radius: 20px;
-  border: 2px solid rgba(59, 130, 246, 0.2);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-/* Waiting State */
-.waiting-state {
-  text-align: center;
-  padding: 2rem;
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e5e7eb;
-  border-top: 4px solid var(--primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 1rem auto;
-}
-
-.waiting-message {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #374151;
-  margin: 0 0 0.5rem 0;
-}
-
-.share-hint {
-  color: #6b7280;
-  font-size: 0.875rem;
-  margin: 0;
-}
-
-/* Ready State */
-.ready-state {
-  text-align: center;
-}
-
-.ready-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 2px solid rgba(16, 185, 129, 0.2);
-  border-radius: 12px;
-}
-
-.ready-icon {
-  font-size: 1.5rem;
-}
-
-.ready-message p {
-  margin: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #10b981;
-}
-
-.game-setup {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.start-game-button {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-.start-game-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
-}
-
-.game-info h2 {
-  font-size: 1rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
-.game-info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
-
-.game-info-left,
-.game-info-right {
+  /* Multiplayer mobile */
+  .multiplayer-game {
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
   
-}
-
-.game-info-left p,
-.game-info-right p {
-  margin: 0 0 0.5rem 0;
-  color: #374151;
-  font-size: 0.875rem;
-}
-
-.game-info-left p:last-child,
-.game-info-right p:last-child {
-  margin-bottom: 0;
-}
-
-.size-selector {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.size-selector label {
-  font-weight: 500;
-  color: #374151;
-  font-size: 0.875rem;
-}
-
-.size-select {
-  padding: 0.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.size-select:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.size-select:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.size-hint {
-  font-size: 0.75rem;
-  color: #6b7280;
-  font-style: italic;
-  margin: 0;
-}
-
-.status-indicator {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border: 2px solid rgba(16, 185, 129, 0.2);
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.status-indicator.active {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-/* Game Board Container */
-.game-board-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-/* Game Board and Chat Layout */
-.game-board-and-chat {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.game-board-section {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 16px;
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-.dynamic-board {
-  display: grid;
-  gap: 4px;
-  background: #374151;
-  padding: 8px;
-  border-radius: 12px;
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cell:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.05);
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-.cell:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.cell.own-move {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--primary);
-  border: 2px solid rgba(59, 130, 246, 0.3);
-}
-
-/* Game Messages */
-.game-messages {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.winner-message,
-.draw-message {
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.winner-message {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border: 2px solid rgba(16, 185, 129, 0.2);
-}
-
-.draw-message {
-  background: rgba(245, 158, 11, 0.1);
-  color: #f59e0b;
-  border: 2px solid rgba(245, 158, 11, 0.2);
-}
-
-/* Game Controls */
-.game-controls {
-  text-align: center;
-}
-
-.reset-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-  background-color: #ef4444;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-}
-
-/* Chat Section */
-.chat-section {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-section h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--primary);
-  text-align: center;
-}
-
-.chat-messages {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  flex: 1;
-}
-
-.chat-message {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 6px;
-  font-size: 0.875rem;
-}
-
-.chat-message strong {
-  color: var(--primary);
-}
-
-.chat-input {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.message-input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.message-input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.message-input::placeholder {
-  color: #9ca3af;
-}
-
-.send-button {
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-}
-
-.send-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
-
-/* Responsive Design for Multiplayer */
-@media screen and (max-width: 768px) {
-  .username-setup {
-    padding: 2rem 1rem;
-    margin: 1rem;
+  .multiplayer-game-info {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+  }
+  
+  .multiplayer-game-info h2 {
+    font-size: 1.25rem;
+  }
+  
+  .multiplayer-dynamic-board {
+    max-width: min(90vw, calc(55vh - 100px)) !important;
+    max-height: min(90vw, calc(55vh - 100px)) !important;
+    width: min(90vw, calc(55vh - 100px)) !important;
+    height: min(90vw, calc(55vh - 100px)) !important;
+  }
+  
+  .multiplayer-dynamic-board .cell {
+    font-size: clamp(0.9rem, 7vw, 1.8rem);
+    min-height: 40px;
+    min-width: 40px;
+  }
+  
+  .multiplayer-chat-section {
+    max-height: calc(40vh - 80px);
+    padding: 0.5rem;
+  }
+  
+  .multiplayer-chat-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .multiplayer-chat-message {
+    font-size: 0.8rem;
+    padding: 0.4rem;
   }
 
-  .username-setup h2 {
-    font-size: 2rem;
-  }
-
-  .room-setup {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-
-  .room-setup h2 {
-    font-size: 1.75rem;
-  }
-
-  .room-options {
-    gap: 1.5rem;
-  }
-
-  .room-option-card {
-    padding: 1.5rem;
-  }
-
-  .room-info-container {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-
-  .room-header h2 {
-    font-size: 1.5rem;
-  }
-
-  .room-status {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .game-info-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .game-board-and-chat {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .chat-section {
-    order: -1;
-  }
-
-  .dynamic-board {
-    gap: 3px;
-    padding: 6px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .username-setup {
-    padding: 1.5rem 1rem;
-  }
-
-  .username-setup h2 {
-    font-size: 1.75rem;
-  }
-
-  .room-setup {
-    padding: 1rem;
-  }
-
-  .room-setup h2 {
-    font-size: 1.5rem;
-  }
-
-  .room-option-card {
-    padding: 1rem;
-  }
-
-  .room-info-container {
-    padding: 1rem;
-  }
-
-  .dynamic-board {
-    gap: 2px;
-    padding: 4px;
-  }
-
-  .chat-input {
+  .multiplayer-chat-input {
     flex-direction: column;
   }
 
-  .send-button {
+  .multiplayer-send-button {
     width: 100%;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 360px) {
+  .multiplayer-game {
+    padding: 0.125rem;
+    gap: 0.125rem;
+  }
+  
+  .multiplayer-game-info {
+    padding: 0.125rem 0;
+    font-size: 0.8rem;
+  }
+  
+  .multiplayer-game-info h2 {
+    font-size: 1.1rem;
+  }
+  
+  .multiplayer-dynamic-board {
+    max-width: min(95vw, calc(50vh - 80px)) !important;
+    max-height: min(95vw, calc(50vh - 80px)) !important;
+    width: min(95vw, calc(50vh - 80px)) !important;
+    height: min(95vw, calc(50vh - 80px)) !important;
+  }
+  
+  .multiplayer-dynamic-board .cell {
+    font-size: clamp(0.8rem, 8vw, 1.5rem);
+    min-height: 36px;
+    min-width: 36px;
+  }
+  
+  .multiplayer-chat-section {
+    max-height: calc(35vh - 60px);
+    padding: 0.4rem;
+  }
+  
+  .multiplayer-chat-section h3 {
+    font-size: 0.9rem;
+  }
+  
+  .multiplayer-chat-message {
+    font-size: 0.75rem;
+    padding: 0.3rem;
+  }
+  
+  .multiplayer-message-input {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+  
+  .multiplayer-send-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Large screens optimization */
+@media (min-width: 1200px) {
+  .multiplayer-dynamic-board {
+    max-width: min(45vw, calc(70vh - 200px)) !important;
+    max-height: min(45vw, calc(70vh - 200px)) !important;
+    width: min(45vw, calc(70vh - 200px)) !important;
+    height: min(45vw, calc(70vh - 200px)) !important;
+  }
+  
+  .multiplayer-dynamic-board .cell {
+    font-size: clamp(1rem, 2vw, 2rem);
   }
 }
