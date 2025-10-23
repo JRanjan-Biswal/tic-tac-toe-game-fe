@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { FiCopy } from "react-icons/fi";
 import styles from '@/components/multiplayer.module.css';
 
-const socketUrl = !process.env.NEXT_PUBLIC_SOCKET_URL;
+const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL;
 
 const MultiplayerTicTacToe = () => {
   const [socket, setSocket] = useState(null);
