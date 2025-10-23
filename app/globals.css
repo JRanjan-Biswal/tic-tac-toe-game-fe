@@ -192,11 +192,14 @@ body {
   padding: 1rem;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   position: relative;
+  margin-bottom: 0.5rem;
 }
 
 .back-button {
   position: absolute;
   left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
   border: 2px solid rgb(231, 228, 228);
   color: var(--text-light);
@@ -215,7 +218,6 @@ body {
 .back-button:hover {
   background: var(--border);
   color: var(--primary);
-  transform: translateX(-2px);
 }
 
 .game-mode-info {
@@ -454,7 +456,10 @@ body {
 
 /* Game Status */
 .game-status {
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .current-player {
@@ -483,14 +488,6 @@ body {
   font-size: 0.875rem;
   color: var(--text-light);
   font-weight: 500;
-}
-
-/* Game Board */
-.game-board-wrapper {
-  padding: 2rem;
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
 }
 
 .dynamic-board {
@@ -1513,10 +1510,6 @@ body {
     gap: 1rem;
   }
 
-  .game-board-wrapper {
-    padding: 1rem;
-  }
-
   .cell {
     font-size: 1.5rem;
   }
@@ -2031,10 +2024,6 @@ body {
 .start-game-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
-}
-
-.game-info {
-  margin-bottom: 2rem;
 }
 
 .game-info h2 {

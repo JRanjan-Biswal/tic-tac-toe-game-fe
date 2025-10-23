@@ -4,6 +4,8 @@ import { io } from "socket.io-client";
 import { FiCopy } from "react-icons/fi";
 import styles from '@/components/multiplayer.module.css';
 
+const socketUrl = !process.env.NEXT_PUBLIC_SOCKET_URL;
+
 const MultiplayerTicTacToe = () => {
   const [socket, setSocket] = useState(null);
   const [username, setUsername] = useState("");
@@ -31,7 +33,7 @@ const MultiplayerTicTacToe = () => {
 
   useEffect(() => {
     // Initialize socket connection
-    socketRef.current = io('http://localhost:4000');
+    socketRef.current = io(socketUrl);
     setSocket(socketRef.current);
 
     // Socket event listeners

@@ -277,7 +277,6 @@ export default function TicTacToe({ size = 3, gameMode, onGameModeChange }) {
         )}
 
         {isGameStarted && (
-          <div className="game-board-wrapper">
             <div
               className="dynamic-board"
               style={{
@@ -304,7 +303,6 @@ export default function TicTacToe({ size = 3, gameMode, onGameModeChange }) {
                 ))
               )}
             </div>
-          </div>
         )}
 
         {isGameStarted && gameState.isGameOver && (
