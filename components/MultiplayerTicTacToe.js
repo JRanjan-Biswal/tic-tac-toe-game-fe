@@ -460,8 +460,8 @@ const MultiplayerTicTacToe = () => {
             containerStyle={{
               gridTemplateColumns: `repeat(${gameState.gameSize}, 1fr)`,
               gridTemplateRows: `repeat(${gameState.gameSize}, 1fr)`,
-              maxWidth: 'min(50vw, calc(100vh - 400px))',
-              maxHeight: 'min(50vw, calc(100vh - 400px))',
+              maxWidth: 'min(70vw, calc(100vh - 400px))',
+              maxHeight: 'min(70vw, calc(100vh - 400px))',
               width: 'min(50vw, calc(100vh - 200px))',
               height: 'min(50vw, calc(100vh - 200px))'
             }}
