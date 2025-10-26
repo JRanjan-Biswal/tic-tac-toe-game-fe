@@ -282,23 +282,6 @@ const MultiplayerTicTacToe = () => {
           <div className="room-options">
             <div className="room-option-card">
               <h3>Create New Room</h3>
-              {/* <div className="size-selection">
-                <label>Select Board Size:</label>
-                <select
-                  value={gameSize}
-                  onChange={(e) => setGameSize(parseInt(e.target.value))}
-                  className="board-size-select"
-                >
-                  <option value={3}>3x3</option>
-                  <option value={4}>4x4</option>
-                  <option value={5}>5x5</option>
-                  <option value={6}>6x6</option>
-                  <option value={7}>7x7</option>
-                  <option value={8}>8x8</option>
-                  <option value={9}>9x9</option>
-                  <option value={10}>10x10</option>
-                </select>
-              </div> */}
               <button onClick={handleCreateRoom} className="create-room-button">
                 Create New Room
               </button>
@@ -452,11 +435,11 @@ const MultiplayerTicTacToe = () => {
         <div className="game-board-section">
           <div
             className="dynamic-board"
-            style={{ 
+            style={{
               gridTemplateColumns: `repeat(${gameState.gameSize}, 1fr)`,
               gridTemplateRows: `repeat(${gameState.gameSize}, 1fr)`,
-              maxWidth: 'min(50vw, calc(100vh - 200px))',
-              maxHeight: 'min(50vw, calc(100vh - 200px))',
+              maxWidth: 'min(50vw, calc(100vh - 400px))',
+              maxHeight: 'min(50vw, calc(100vh - 400px))',
               width: 'min(50vw, calc(100vh - 200px))',
               height: 'min(50vw, calc(100vh - 200px))'
             }}
@@ -481,11 +464,13 @@ const MultiplayerTicTacToe = () => {
         <div className="chat-section">
           <h3>Chat</h3>
           <div className="chat-messages">
-            {
-              console.log(messages)
-            }
             {messages.map((msg, index) => (
-              <div key={index} className="chat-message">
+              <div key={index} className="chat-message"
+                style={{
+                  display: "flex",
+                  justifyContent: msg.username == username ? 'flex-end' : 'flex-start',
+                  backgroundColor: msg.username == username ? 'lightgreen' : 'lightblue'
+                }}>
                 <strong>{msg.username}:</strong> {msg.text}
               </div>
             ))}

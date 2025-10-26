@@ -64,6 +64,7 @@ body {
 .game-wrapper {
   width: 100%;
   max-width: 1200px;
+  height: 80svh;
   margin: 0 auto;
   position: relative;
 }
@@ -762,14 +763,13 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
 }
 
 .username-setup h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: linear-gradient(135deg, #333bae 0%, #006a5f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -871,14 +871,13 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
 }
 
 .room-setup h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: linear-gradient(135deg, #333bae 0%, #006a5f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -905,6 +904,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   transition: all var(--transition-normal);
+  min-height: 100%;
 }
 
 .room-option-card:hover {
@@ -1241,12 +1241,13 @@ body {
   padding: 0.5rem 0;
 }
 
-.multiplayer-game-board-and-chat {
+.game-board-and-chat {
   display: flex;
   flex: 1;
   gap: 0.75rem;
   min-height: 0;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .multiplayer-game-board-section {
@@ -1298,7 +1299,7 @@ body {
 }
 
 /* Multiplayer Chat Section */
-.multiplayer-chat-section {
+.chat-section {
   width: 350px;
   flex-shrink: 0;
   display: flex;
@@ -1307,11 +1308,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   padding: 0.75rem;
-  max-height: calc(100vh - 150px);
   overflow: hidden;
+  height: fit-content;
 }
 
-.multiplayer-chat-section h3 {
+.chat-section h3 {
   margin: 0 0 1rem 0;
   font-size: 1.25rem;
   font-weight: 600;
@@ -1320,15 +1321,15 @@ body {
   padding-bottom: 0.5rem;
 }
 
-.multiplayer-chat-messages {
-  flex: 1;
+.chat-messages {
   overflow-y: auto;
   margin-bottom: 0.75rem;
   min-height: 0;
   padding-right: 0.5rem;
+  max-height: 400px;
 }
 
-.multiplayer-chat-message {
+.chat-message {
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   background-color: #f9fafb;
@@ -1337,17 +1338,17 @@ body {
   line-height: 1.4;
 }
 
-.multiplayer-chat-message strong {
+.chat-message strong {
   color: #1e40af;
 }
 
-.multiplayer-chat-input {
+.chat-input {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
 }
 
-.multiplayer-message-input {
+.message-input {
   flex: 1;
   padding: 0.5rem;
   border: 1px solid #d1d5db;
@@ -1355,13 +1356,13 @@ body {
   font-size: 0.875rem;
 }
 
-.multiplayer-message-input:focus {
+.message-input:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.multiplayer-send-button {
+.send-button {
   padding: 0.5rem 1rem;
   background-color: #3b82f6;
   color: white;
@@ -1373,17 +1374,17 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.multiplayer-send-button:hover {
+.send-button:hover {
   background-color: #2563eb;
 }
 
-.multiplayer-game-messages {
+.game-messages {
   flex-shrink: 0;
   text-align: center;
 }
 
-.multiplayer-winner-message, 
-.multiplayer-draw-message {
+.winner-message, 
+.draw-message {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem;
@@ -1391,16 +1392,32 @@ body {
   margin: 1rem 0;
 }
 
-.multiplayer-winner-message {
+.winner-message {
   background-color: #dcfce7;
   color: #166534;
   border: 2px solid #22c55e;
 }
 
-.multiplayer-draw-message {
+.draw-message {
   background-color: #fef3c7;
   color: #92400e;
   border: 2px solid #f59e0b;
+}
+
+.game-info {
+  background-color: white;
+  padding: 24px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.reset-button {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid #003b9b;
+  cursor: pointer;
 }
 
 /* ========================================
