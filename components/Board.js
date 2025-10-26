@@ -13,32 +13,61 @@ const PLAYERS = {
   )
 };
 
-const Board = ({ board, validSize, currentPlayer, gameState, onCellClick }) => {
+const Board = ({ 
+  board, 
+  validSize, 
+  currentPlayer, 
+  gameState, 
+  onCellClick,
+  playerSymbol, // For multiplayer
+  cellClassName = '', // For additional classes like 'own-move'
+  showPreview = true, // Show hover preview for single player
+  containerStyle = null, // Allow custom container styling
+  disableCondition = null // Custom disable condition
+}) => {
+  // Determine if we should show SVG icons or text
+  // Show SVG icons only for single player mode (when showPreview is true and we have a currentPlayer for preview)
+  const useSvgIcons = showPreview;
+
+  const defaultStyle = containerStyle || {
+    gridTemplateColumns: `repeat(${validSize}, minmax(60px, 80px))`,
+    gap: validSize > 5 ? '0.5rem' : '0.75rem'
+  };
+
   return (
-    <div
-      className="dynamic-board"
-      style={{
-        gridTemplateColumns: `repeat(${validSize}, minmax(60px, 80px))`,
-        gap: validSize > 5 ? '0.5rem' : '0.75rem'
-      }}
-    >
+    <div className="dynamic-board" style={defaultStyle}>
       {board.map((row, rowIdx) =>
-        row.map((cell, colIdx) => (
-          <button
-            key={`${rowIdx}-${colIdx}`}
-            className={`cell ${cell ? 'filled' : ''}`}
-            onClick={() => onCellClick(rowIdx, colIdx)}
-            disabled={gameState.isGameOver || cell !== null}
-          >
-            <div className="cell-content">
-              {cell ? PLAYERS[cell] : (
-                <div className="cell-preview">
-                  {PLAYERS[currentPlayer]}
+        row.map((cell, colIdx) => {
+          const isOwnMove = playerSymbol && cell === playerSymbol;
+          const cellClass = `cell ${cell ? 'filled' : ''} ${isOwnMove ? 'own-move' : ''} ${cellClassName}`.trim();
+          
+          // Determine if cell should be disabled
+          let isDisabled = gameState.isGameOver || cell !== null;
+          if (disableCondition) {
+            isDisabled = disableCondition(rowIdx, colIdx, gameState, playerSymbol, currentPlayer);
+          }
+          
+          return (
+            <button
+              key={`${rowIdx}-${colIdx}`}
+              className={cellClass}
+              onClick={() => onCellClick(rowIdx, colIdx)}
+              disabled={isDisabled}
+            >
+              {/* {useSvgIcons ? ( */}
+                <div className="cell-content">
+                  {cell ? PLAYERS[cell] : (
+                    <div className="cell-preview">
+                      {PLAYERS[currentPlayer]}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </button>
-        ))
+            {/* //   ) : (
+            //     cell
+            //   )} */}
+            </button>
+          );
+        })
       )}
     </div>
   );

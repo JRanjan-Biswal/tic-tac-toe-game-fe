@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import { FiCopy } from "react-icons/fi";
+import Board from '@/components/Board';
 import styles from '@/components/multiplayer.module.css';
 
 const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL;
@@ -448,9 +449,15 @@ const MultiplayerTicTacToe = () => {
 
       <div className="game-board-and-chat">
         <div className="game-board-section">
-          <div
-            className="dynamic-board"
-            style={{
+          <Board
+            board={gameState.board}
+            validSize={gameState.gameSize}
+            currentPlayer={gameState.currentPlayer}
+            gameState={gameState}
+            onCellClick={handleCellClick}
+            playerSymbol={playerSymbol}
+            showPreview={false}
+            containerStyle={{
               gridTemplateColumns: `repeat(${gameState.gameSize}, 1fr)`,
               gridTemplateRows: `repeat(${gameState.gameSize}, 1fr)`,
               maxWidth: 'min(50vw, calc(100vh - 400px))',
@@ -458,22 +465,12 @@ const MultiplayerTicTacToe = () => {
               width: 'min(50vw, calc(100vh - 200px))',
               height: 'min(50vw, calc(100vh - 200px))'
             }}
-          >
-            {console.log('Rendering board with size:', gameState.gameSize, 'Board dimensions:', gameState.board.length, 'x', gameState.board[0]?.length)}
-            {gameState.board.map((row, rowIdx) =>
-              row.map((cell, colIdx) => (
-                <button
-                  key={`${rowIdx}-${colIdx}`}
-                  className={`cell ${cell === playerSymbol ? 'own-move' : ''}`}
-                  onClick={() => handleCellClick(rowIdx, colIdx)}
-                  disabled={gameState.isGameOver || cell !== null || gameState.currentPlayer !== playerSymbol}
-                  title={`Row: ${rowIdx}, Col: ${colIdx}, Current: ${gameState.currentPlayer}, Your: ${playerSymbol}, Disabled: ${gameState.isGameOver || cell !== null || gameState.currentPlayer !== playerSymbol}`}
-                >
-                  {cell}
-                </button>
-              ))
-            )}
-          </div>
+            disableCondition={(rowIdx, colIdx, gameState, playerSymbol, currentPlayer) => {
+              return gameState.isGameOver || 
+                     gameState.board[rowIdx][colIdx] !== null || 
+                     currentPlayer !== playerSymbol;
+            }}
+          />
         </div>
 
         <div className="chat-section">

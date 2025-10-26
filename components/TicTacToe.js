@@ -232,37 +232,68 @@ export default function TicTacToe({ size = 3, gameMode, onGameModeChange }) {
               </button>
             </div>
           ) : (
-            <div className="game-info">
-              <button className="back-button" onClick={exitGame} aria-label="Back to settings">
-                <FaArrowLeftLong size={14} />
-              </button>
-              <div className="game-mode-info">
-                <span className="info-label">Mode:</span>
-                <span className="info-value">{gameMode === 'single' ? 'Single Player' : 'Multiplayer'}</span>
-                <span className="info-separator">•</span>
-                <span className="info-label">Board Size:</span>
-                <span className="info-value">{gameSize}x{gameSize}</span>
+            <div className="game-info flex justify-between items-center flex-wrap">
+              <div style={{ position: 'relative', display: 'inline-block' }}>
+                <button
+                  className="back-button"
+                  onClick={exitGame}
+                  aria-label="Back to settings"
+                  onMouseEnter={e => {
+                    const tooltip = e.currentTarget.nextSibling;
+                    if (tooltip) tooltip.style.opacity = "1";
+                  }}
+                  onMouseLeave={e => {
+                    const tooltip = e.currentTarget.nextSibling;
+                    if (tooltip) tooltip.style.opacity = "0";
+                  }}
+                >
+                  <FaArrowLeftLong size={14} />
+                </button>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 'calc(100% + 4px)',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: '#222',
+                    color: '#fff',
+                    padding: '4px 10px',
+                    borderRadius: '4px',
+                    fontSize: '0.85rem',
+                    opacity: 0,
+                    pointerEvents: 'none',
+                    transition: 'opacity 0.2s',
+                    whiteSpace: 'nowrap',
+                    zIndex: 10,
+                  }}
+                >
+                  Back to Settings
+                </div>
               </div>
+              {isGameStarted && !gameState.isGameOver && (
+                <>
+                  <div>
+                    <div className="win-condition text-center mb-2">
+                      Get {getWinLength(validSize)} in a row to win!
+                    </div>
+                    <div className="current-player">
+                      <span className="text-sm">Current Player:</span>
+                      <div className="player-indicator">
+                        {PLAYERS[currentPlayer]}
+                      </div>
+                    </div>
+                  </div>
+                  <button className="reset-button" onClick={resetGame} aria-label="Reset game">
+                    Reset
+                  </button>
+                </>
+              )}
+
             </div>
           )}
         </div>
 
-        {isGameStarted && !gameState.isGameOver && (
-          <div className="game-status">
-            <button className="reset-game-button" onClick={resetGame} aria-label="Reset game">
-              Reset
-            </button>
-            <div className="current-player">
-              <span className="status-label">Current Player:</span>
-              <div className="player-indicator">
-                {PLAYERS[currentPlayer]}
-              </div>
-            </div>
-            <div className="win-condition">
-              Get {getWinLength(validSize)} in a row to win!
-            </div>
-          </div>
-        )}
+
 
         {isGameStarted && (
           <Board

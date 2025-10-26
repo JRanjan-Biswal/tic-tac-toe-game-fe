@@ -175,10 +175,6 @@ body {
    ======================================== */
 
 .back-button {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   background: transparent;
   border: 2px solid rgb(231, 228, 228);
   color: var(--text-light);
@@ -723,27 +719,6 @@ body {
   box-shadow: none;
 }
 
-.reset-game-button {
-  padding: 0.625rem 1.25rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-light);
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  white-space: nowrap;
-}
-
-.reset-game-button:hover {
-  color: var(--primary);
-  border-color: var(--primary);
-  background: var(--surface);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
 /* ========================================
    MULTIPLAYER SPECIFIC STYLES
    ======================================== */
@@ -1244,6 +1219,9 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 0;
+  background: #ffffffe6;
+  border-radius: var(--radius-lg);
+  margin-bottom: 60px;
 }
 
 /* Multiplayer Chat Section */
@@ -1310,7 +1288,7 @@ body {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.send-button {
+.send-button, .reset-button {
   padding: 0.5rem 1rem;
   background-color: #3b82f6;
   color: white;
@@ -1322,7 +1300,7 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.send-button:hover {
+.send-button:hover, .reset-button:hover {
   background-color: #2563eb;
 }
 
@@ -1355,17 +1333,8 @@ body {
 .game-info {
   background-color: white;
   padding: 24px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   border-radius: 10px;
-}
-
-.reset-button {
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
-  padding: 10px;
-  border-radius: 4px;
-  font-weight: 600;
-  border: 1px solid #003b9b;
-  cursor: pointer;
 }
 
 /* ========================================
@@ -1467,10 +1436,6 @@ body {
 
   .game-wrapper {
     border-radius: 16px;
-    box-shadow: 
-      0 12px 24px rgba(0, 0, 0, 0.1),
-      0 4px 8px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
     margin: 0.5rem;
     max-width: calc(100% - 1rem);
   }
@@ -1619,10 +1584,6 @@ body {
     border-radius: 12px;
     margin: 0.25rem;
     max-width: calc(100% - 0.5rem);
-    box-shadow: 
-      0 8px 16px rgba(0, 0, 0, 0.1),
-      0 2px 4px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 
   .game-wrapper::before {
@@ -1633,10 +1594,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  }
-
-  .reset-game-button {
-    align-self: flex-start;
   }
 
   .multiplayer-game {
