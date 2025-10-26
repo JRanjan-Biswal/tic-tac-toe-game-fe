@@ -30,6 +30,7 @@ const MultiplayerTicTacToe = () => {
   const [newMessage, setNewMessage] = useState("");
 
   const socketRef = useRef(null);
+  const chatMessagesRef = useRef(null);
 
   useEffect(() => {
     // Initialize socket connection
@@ -149,6 +150,20 @@ const MultiplayerTicTacToe = () => {
       }
     };
   }, []);
+
+  // Auto-scroll chat to bottom when new messages arrive
+  useEffect(() => {
+    const scrollToBottom = () => {
+      if (chatMessagesRef.current) {
+        chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+      }
+    };
+    
+    // Scroll after a small delay to ensure DOM has updated
+    const timeoutId = setTimeout(scrollToBottom, 10);
+    
+    return () => clearTimeout(timeoutId);
+  }, [messages]);
 
   const handleSetUsername = () => {
     if (username.trim()) {
@@ -463,7 +478,7 @@ const MultiplayerTicTacToe = () => {
 
         <div className="chat-section">
           <h3>Chat</h3>
-          <div className="chat-messages">
+          <div className="chat-messages" ref={chatMessagesRef}>
             {messages.map((msg, index) => (
               <div key={index} className="chat-message"
                 style={{

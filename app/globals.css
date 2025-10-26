@@ -96,19 +96,6 @@ body {
   margin-bottom: 2rem;
 }
 
-.game-title {
-  margin: 0 0 1.5rem 0;
-  color: var(--primary);
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
-
 .game-settings {
   display: flex;
   flex-direction: column;
@@ -187,15 +174,6 @@ body {
    GAME INFO BAR
    ======================================== */
 
-.game-info-bar {
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-
 .back-button {
   position: absolute;
   left: 1rem;
@@ -229,6 +207,29 @@ body {
   gap: 0.75rem;
   flex-wrap: wrap;
   padding: 0 3rem;
+}
+
+.info-label,
+.info-value,
+.info-separator {
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.info-label {
+  color: var(--text-light);
+}
+
+.status-indicator {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--success);
+  color: white;
+}
+
+.status-indicator.active {
+  background: var(--success);
 }
 
 /* ========================================
@@ -336,16 +337,8 @@ body {
 
 .game-controls {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.control-group {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-end;
+  gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .size-input-group {
@@ -1236,11 +1229,6 @@ body {
   overflow: hidden;
 }
 
-.multiplayer-game-info {
-  flex-shrink: 0;
-  padding: 0.5rem 0;
-}
-
 .game-board-and-chat {
   display: flex;
   flex: 1;
@@ -1250,53 +1238,6 @@ body {
   justify-content: space-between;
 }
 
-.multiplayer-game-board-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-}
-
-.multiplayer-dynamic-board {
-  display: grid;
-  gap: 2px;
-  background-color: #374151;
-  padding: 4px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.multiplayer-dynamic-board .cell {
-  background-color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: clamp(0.8rem, 3vw, 2.5rem);
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
-  width: 100%;
-  height: 100%;
-}
-
-.multiplayer-dynamic-board .cell:hover:not(:disabled) {
-  background-color: #f3f4f6;
-  transform: scale(1.05);
-}
-
-.multiplayer-dynamic-board .cell:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.multiplayer-dynamic-board .cell.own-move {
-  background-color: #dbeafe;
-  color: #1e40af;
-}
 
 /* Multiplayer Chat Section */
 .chat-section {
@@ -1567,10 +1508,6 @@ body {
     gap: 1.5rem;
   }
 
-  .control-group {
-    gap: 1rem;
-  }
-
   .cell {
     font-size: 1.5rem;
   }
@@ -1649,32 +1586,20 @@ body {
     font-size: 1.1rem;
   }
 
-  .multiplayer-game-board-and-chat {
+  .game-board-and-chat {
     flex-direction: column;
     gap: 0.5rem;
   }
   
-  .multiplayer-chat-section {
+  .chat-section {
     width: 100%;
     max-height: calc(35vh - 40px);
     padding: 0.5rem;
   }
-  
-  .multiplayer-chat-messages {
-    max-height: calc(25vh - 80px);
-  }
-  
-  .multiplayer-dynamic-board {
-    max-width: min(85vw, calc(100vh)) !important;
-    max-height: min(85vw, calc(100vh)) !important;
-    width: min(85vw, calc(100vh)) !important;
-    height: min(85vw, calc(100vh)) !important;
-  }
-  
-  .multiplayer-dynamic-board .cell {
-    font-size: clamp(1rem, 6vw, 2rem);
-    min-height: 44px;
-    min-width: 44px;
+
+  .multiplayer-game {
+    padding: 0.25rem;
+    gap: 0.25rem;
   }
 }
 
@@ -1707,56 +1632,11 @@ body {
     align-self: flex-start;
   }
 
-  /* Multiplayer mobile */
   .multiplayer-game {
     padding: 0.25rem;
     gap: 0.25rem;
   }
-  
-  .multiplayer-game-info {
-    padding: 0.25rem 0;
-    font-size: 0.875rem;
-  }
-  
-  .multiplayer-game-info h2 {
-    font-size: 1.25rem;
-  }
-  
-  .multiplayer-dynamic-board {
-    max-width: min(90vw, calc(55vh - 100px)) !important;
-    max-height: min(90vw, calc(55vh - 100px)) !important;
-    width: min(90vw, calc(55vh - 100px)) !important;
-    height: min(90vw, calc(55vh - 100px)) !important;
-  }
-  
-  .multiplayer-dynamic-board .cell {
-    font-size: clamp(0.9rem, 7vw, 1.8rem);
-    min-height: 40px;
-    min-width: 40px;
-  }
-  
-  .multiplayer-chat-section {
-    max-height: calc(40vh - 80px);
-    padding: 0.5rem;
-  }
-  
-  .multiplayer-chat-section h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .multiplayer-chat-message {
-    font-size: 0.8rem;
-    padding: 0.4rem;
-  }
 
-  .multiplayer-chat-input {
-    flex-direction: column;
-  }
-
-  .multiplayer-send-button {
-    width: 100%;
-  }
 }
 
 /* Extra small screens */
@@ -1764,65 +1644,5 @@ body {
   .multiplayer-game {
     padding: 0.125rem;
     gap: 0.125rem;
-  }
-  
-  .multiplayer-game-info {
-    padding: 0.125rem 0;
-    font-size: 0.8rem;
-  }
-  
-  .multiplayer-game-info h2 {
-    font-size: 1.1rem;
-  }
-  
-  .multiplayer-dynamic-board {
-    max-width: min(95vw, calc(50vh - 80px)) !important;
-    max-height: min(95vw, calc(50vh - 80px)) !important;
-    width: min(95vw, calc(50vh - 80px)) !important;
-    height: min(95vw, calc(50vh - 80px)) !important;
-  }
-  
-  .multiplayer-dynamic-board .cell {
-    font-size: clamp(0.8rem, 8vw, 1.5rem);
-    min-height: 36px;
-    min-width: 36px;
-  }
-  
-  .multiplayer-chat-section {
-    max-height: calc(35vh - 60px);
-    padding: 0.4rem;
-  }
-  
-  .multiplayer-chat-section h3 {
-    font-size: 0.9rem;
-  }
-  
-  .multiplayer-chat-message {
-    font-size: 0.75rem;
-    padding: 0.3rem;
-  }
-  
-  .multiplayer-message-input {
-    font-size: 0.8rem;
-    padding: 0.4rem;
-  }
-  
-  .multiplayer-send-button {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-/* Large screens optimization */
-@media (min-width: 1200px) {
-  .multiplayer-dynamic-board {
-    max-width: min(45vw, calc(70vh - 200px)) !important;
-    max-height: min(45vw, calc(70vh - 200px)) !important;
-    width: min(45vw, calc(70vh - 200px)) !important;
-    height: min(45vw, calc(70vh - 200px)) !important;
-  }
-  
-  .multiplayer-dynamic-board .cell {
-    font-size: clamp(1rem, 2vw, 2rem);
   }
 }
